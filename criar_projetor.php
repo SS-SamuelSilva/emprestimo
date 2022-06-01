@@ -6,13 +6,12 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
     unset($_SESSION['senha']);
     header('location: index.php');
 
-
-
     // P E G A N D O  O S  D A D O S  D O  F O R M U L Á R I O
     if (isset($_POST['submit'])) {
         $service_tag = $_POST['service_tag'];
         $nome_detalhado  = $_POST['modelo'];
         $descricao  = $_POST['descricao'];
+        print_r($nome_detalhado);
 
         // select P A R A  V E R I F I C A R  S E  J Á  E X I S T E  A L G U M  I T E M  C O M  A  S E R V I C E  T A G  A R M A Z E N A D A  N A  V A R I A V E L $service_tag
         $sql_search = "SELECT identificacao, nome_detalhado FROM projetor WHERE identificacao LIKE '$service_tag'";
@@ -111,7 +110,6 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
             </script>';
         }
     }
-
 }
 
 ?>

@@ -36,7 +36,7 @@ session_start();
                 </div>
 
                 <div class="text-center">
-                    <button type=" submit" class="btn btn-primary mb-3" name="submit">Confirm identity</button>
+                    <button type=" submit" class="btn btn-primary mb-3" name="submit">Entrar</button>
                 </div>
             </div>
         </form>

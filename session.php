@@ -29,7 +29,7 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
 
 
     //C O N S U L T A  SQL  N A  T A B E L A  U S U Á R I O
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha ='$senha'";
+    $sql = "SELECT * FROM usuarios WHERE usuario LIKE '$usuario' AND senha LIKE '$senha'";
     $result = $con->query($sql);
 
     // E R R O  333  D E  U S U Á R I O  I N C O R R E T O

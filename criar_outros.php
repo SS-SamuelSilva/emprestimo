@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     $descricao  = $_POST['descricao'];
 
     // select P A R A  V E R I F I C A R  S E  J Á  E X I S T E  A L G U M  I T E M  C O M  A  S E R V I C E  T A G  A R M A Z E N A D A  N A  V A R I A V E L $service_tag
-    $sql_search = "SELECT identificacao, nome_detalhado FROM teclado WHERE identificacao LIKE '$service_tag'";
+    $sql_search = "SELECT identificacao, nome_detalhado FROM outros WHERE identificacao LIKE '$service_tag'";
     $sql_search_query = $con->query($sql_search);
 
     // P E G A N D O  O  D A D O  D O  B A N C O   D E  D A D O S  E  A R M A Z E N A N D O  N A  V A R I A V E L  $dados
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     }
 
     // I N S E R I N D O  O S  D A D O S  D O  F O R M U L Á R I O
-    $sql_injection = mysqli_query($con, "INSERT INTO teclado (identificacao, nome_detalhado, descricao) 
+    $sql_injection = mysqli_query($con, "INSERT INTO outros (identificacao, nome_detalhado, descricao) 
         VALUES ('$service_tag', '$nome_detalhado', '$descricao')");
 
 
@@ -132,7 +132,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserir teclado</title>
+    <title>Inserir Outros</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
@@ -143,12 +143,12 @@ if (isset($_POST['submit'])) {
             <div class="col">
             </div>
             <div class="col-md-4">
-                <h2>Incluir um teclado</h2>
+                <h2>Incluir</h2>
             </div>
             <div class="col">
             </div>
         </div>
-        <form action="criar_teclado.php" method="POST">
+        <form action="criar_outros.php" method="POST">
             <legend>Identificação:</legend>
             <div class="form-floating col-3">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" name="identificação">
@@ -158,13 +158,13 @@ if (isset($_POST['submit'])) {
             <legend>Modelo:</legend>
             <div class="form-floating col-3">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" name="modelo">
-                <label for="floatingInput">Ex.: Estado do teclado...</label>
+                <label for="floatingInput">Ex.: Estado...</label>
             </div>
             <br>
             <legend>Descrição:</legend>
             <div class="form-floating col-3">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" name="descricao">
-                <label for="floatingInput">Ex.: Qualidade de imagem, tamanho...</label>
+                <label for="floatingInput">Ex.: Qualidade de imagem...</label>
             </div> 
             <br>
             <legend>Tamanho da tela:</legend>
