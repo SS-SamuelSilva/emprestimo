@@ -26,17 +26,17 @@ session_start();
             <div class="row">
 
                 <div class="col-6">
-                    <label for="staticEmail2" class="visually-hidden">User</label>
+                    <label for="staticEmail2" class="visually-hidden">Usuário</label>
                     <input type="text" class="form-control" id="inputPassword2" placeholder="User" name="usuario">
                 </div>
                 <div class="col-6">
-                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                    <label for="inputPassword2" class="visually-hidden">Senha</label>
                     <input type="password" class="form-control" id="inputPassword2" placeholder="Password" name="senha">
                     <br>
                 </div>
 
                 <div class="text-center">
-                    <button type=" submit" class="btn btn-primary mb-3" name="submit">Confirm identity</button>
+                    <button type=" submit" class="btn btn-primary mb-3" name="submit">Entrar</button>
                 </div>
             </div>
         </form>

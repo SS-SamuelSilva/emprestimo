@@ -156,7 +156,7 @@ $sql_select_projetor = "SELECT identificacao, nome_detalhado FROM projetor";
 $sql_query_projetor = $con->query($sql_select_projetor);
 $sql_query_idprojetor = $con->query($sql_select_projetor);
 
-$sql_select_teclado = "SELECT identificacao, nome_detalhado FROM teclado";
+$sql_select_teclado = "SELECT identificacao, nome_detalhado FROM outros";
 $sql_query_teclado = $con->query($sql_select_teclado);
 $sql_query_idteclado = $con->query($sql_select_teclado);
 
@@ -263,7 +263,7 @@ $sql_query_idteclado = $con->query($sql_select_teclado);
                     <option value='mouse'>Mouse</option>
                     <option value='notebook'>Notebook</option>
                     <option value='projetor'>Projetor</option>
-                    <option value='teclado'>Teclado</option>
+                    <option value='teclado'>Outros</option>
                 </select>
             </div>
             <div class="col-4">

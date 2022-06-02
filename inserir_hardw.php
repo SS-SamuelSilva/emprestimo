@@ -40,11 +40,11 @@ $sql_select_projetor = "SELECT identificacao, nome_detalhado FROM projetor";
 $sql_query_projetor = $con->query($sql_select_projetor);
 
 
-$sql_select_teclado = "SELECT identificacao, nome_detalhado FROM teclado";
+$sql_select_teclado = "SELECT identificacao, nome_detalhado FROM outros";
 $sql_query_teclado = $con->query($sql_select_teclado);
 
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -65,10 +65,10 @@ $sql_query_teclado = $con->query($sql_select_teclado);
         </header>
         <br>
         <!-- C A I X A  P A R A  E D I T A R  U M A  C A M E R A -->
-        <input type="radio" class="form-check-input" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="collapseExample" checked>
-        <label for="collapseExample" role="button">Câmera</label>
+        <input type="radio" class="form-check-input" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" id="collapseExample1" checked>
+        <label for="collapseExample1" role="button">Câmera</label>
 
-        <div class="collapse" id="collapseExample">
+        <div class="collapse" id="collapseExample1">
             <div class="card card-body" style="width: 500px;">
                 <div class="btn-group-sm">
                     <button type="button" class="btn btn-outline-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -218,6 +218,7 @@ $sql_query_teclado = $con->query($sql_select_teclado);
                     </ul>
 
                 </div>
+
                 <br>
                 <a href="criar_projetor.php" style="width: 80px;"><button class="btn btn-outline-success btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
@@ -228,7 +229,7 @@ $sql_query_teclado = $con->query($sql_select_teclado);
 
         <!-- C A I X A  P A R A  E D I T A R  O  T E C L A D O -->
         <input type="radio" class="form-check-input" data-bs-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample6" id="collapseExample6">
-        <label for="collapseExample6" role="button">Teclado</label>
+        <label for="collapseExample6" role="button">Outros</label>
 
         <div class="collapse" id="collapseExample6">
             <div class="card card-body" style="width: 500px;">
@@ -239,7 +240,7 @@ $sql_query_teclado = $con->query($sql_select_teclado);
 
                     <ul class="dropdown-menu">
                         <?php
-                        $tec = 'teclado';
+                        $tec = 'outros';
                         while ($teclado = $sql_query_teclado->fetch_assoc()) {
                             echo "<li><a class='dropdown-item' href='editar_hwrd.php?identificacao=$teclado[identificacao]&tabela=$tec'>" .
                                 $teclado['nome_detalhado'];
@@ -251,17 +252,16 @@ $sql_query_teclado = $con->query($sql_select_teclado);
 
                 </div>
                 <br>
-                <a href="criar_teclado.php" style="width: 80px;"><button class="btn btn-outline-success btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
+                <a href="criar_outros.php" style="width: 80px;"><button class="btn btn-outline-success btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
                         </svg> Criar </button></a>
             </div>
         </div>
         <br>
-
         <!-- C A I X A  P A R A  E D I T A R  O  U S U A R I O S (em breve)-->
-        <input type="radio" class="form-check-input" data-bs-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false" aria-controls="collapseExample7" id="collapseExample7" name="collapseExample7" disabled>
-        <label class="form-check-label" for="collapseExample7">Usuarios (Em breve)</label>
-        <div class="collapse" id="collapseExample7">
+        <input type="radio" class="form-check-input" data-bs-toggle="collapse" href="#collapseExample8" role="button" aria-expanded="false" aria-controls="collapseExample8" id="collapseExample8" name="collapseExample8" disabled>
+        <label class="form-check-label" for="collapseExample8">Usuarios (Em breve)</label>
+        <div class="collapse" id="collapseExample8">
             <div class="card card-body">
                 <a href="editar_hwrd"><button class="btn btn-outline-success btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />

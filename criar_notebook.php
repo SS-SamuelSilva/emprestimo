@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     // select P A R A  V E R I F I C A R  S E  J Á  E X I S T E  A L G U M  I T E M  C O M  A  S E R V I C E  T A G  A R M A Z E N A D A  N A  V A R I A V E L $service_tag
     $sql_search = "SELECT identificacao, nome_detalhado FROM notebook WHERE identificacao LIKE '$service_tag'";
     $sql_search_query = $con->query($sql_search);
-
+    
     // P E G A N D O  O  D A D O  D O  B A N C O   D E  D A D O S  E  A R M A Z E N A N D O  N A  V A R I A V E L  $dados
     while ($result_sql_query = $sql_search_query->fetch_assoc()) {
         $objeto = $result_sql_query['nome_detalhado'];

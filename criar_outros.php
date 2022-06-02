@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $descricao = $_POST['descricao'];
 
     // select P A R A  V E R I F I C A R  S E  J Á  E X I S T E  A L G U M  I T E M  C O M  A  S E R V I C E  T A G  A R M A Z E N A D A  N A  V A R I A V E L $service_tag
-    $sql_search = "SELECT identificacao, nome_detalhado FROM projetor WHERE identificacao LIKE '$service_tag'";
+    $sql_search = "SELECT identificacao, nome_detalhado FROM outros WHERE identificacao LIKE '$service_tag'";
     $sql_search_query = $con->query($sql_search);
 
     // P E G A N D O  O  D A D O  D O  B A N C O   D E  D A D O S  E  A R M A Z E N A N D O  N A  V A R I A V E L  $dados
@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     }
 
     // I N S E R I N D O  O S  D A D O S  D O  F O R M U L Á R I O
-    $sql_injection = mysqli_query($con, "INSERT INTO projetor (identificacao, nome_detalhado, descricao) 
+    $sql_injection = mysqli_query($con, "INSERT INTO outros (identificacao, nome_detalhado, descricao) 
     VALUES ('$service_tag', '$nome_detalhado', '$descricao')");
 
 
@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="row g-3">
-            <form action="criar_projetor.php" method="POST">
+            <form action="criar_outros.php" method="POST">
                 <div class="col-md-3">
                     <label for="identificacao" class="form-label">Identificação:</label>
                     <input type="text" name="identificacao" id="identificacao" placeholder="Service tag, n° de identificação..." class="form-control">

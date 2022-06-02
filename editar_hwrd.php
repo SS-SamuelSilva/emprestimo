@@ -23,7 +23,9 @@ if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == tr
 if (isset($_GET['identificacao'])) {
     $id_produto = $_GET['identificacao'];
     $notebook = $_GET['tabela'];
-
+    print_r($notebook);
+    print_r("<br>");
+    print_r($id_produto);
     $query_sql = "SELECT * FROM $notebook WHERE identificacao LIKE '$id_produto'";
     $sql_query = $con->query($query_sql) or die("Erro de consulta");
     $dados = $sql_query->fetch_assoc();
@@ -40,7 +42,7 @@ if (isset($_GET['identificacao'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Editar <?php echo $dados['nome_detalhado']; ?></title>
+    <title>Editar <?php echo $id_produto; ?></title>
 </head>
 
 <body>
@@ -50,7 +52,7 @@ if (isset($_GET['identificacao'])) {
             <div class="col">
             </div>
             <div class="col-md-4">
-                <h2>Editar <?php echo $dados['nome_detalhado']; ?></h2>
+                <h2>Editar <?php echo $id_produto; ?></h2>
             </div>
             <div class="col">
             </div>
@@ -101,8 +103,10 @@ if (isset($_GET['identificacao'])) {
             </div>
             <br>
             <div class="invisible">
-                <input type="text" class="form-control" id="floatingInput" name="tabela" value="<?php echo $notebook = $_GET['tabela'] ?? null; ?>">
+                <input type="text" class="form-control" id="floatingInput" name="tabela" value="<?php echo $tabela = $_GET['tabela'] ?? null; ?>">
+                <input type="text" class="form-control" id="floatingInput" name="identificacao" value="<?php echo $serial = $_GET['identificacao'] ?? null; ?>">
             </div>
+
             <div class="row g-3">
                 <div class="col-1">
                     <button type="submit" name="submit" class="btn btn-outline-success">Editar</button>
@@ -123,12 +127,12 @@ if (isset($_GET['identificacao'])) {
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                Tem certeza que deseja excluir ? Essa ação não poderar ser desfeita!
+                                Tem certeza que deseja excluir <strong class="fw-bold"> <?php print_r($dados['nome_detalhado']) ?> </strong>? Essa ação não poderá ser desfeita!
                             </div>
                             <div class="modal-footer">
                                 <?php
                                 echo "
-                                    <a href=deletar.php?identificacao=$id_produto&tabela=$notebook>
+                                    <a href=deletar.php?identificacao=$dados[identificacao]&tabela=$notebook>
                                         <button type='button' class='btn btn-danger'>Deletar</button>
                                     </a>";
                                 ?>
