@@ -240,7 +240,7 @@ $sql_query_teclado = $con->query($sql_select_teclado);
 
                     <ul class="dropdown-menu">
                         <?php
-                        $tec = 'teclado';
+                        $tec = 'outros';
                         while ($teclado = $sql_query_teclado->fetch_assoc()) {
                             echo "<li><a class='dropdown-item' href='editar_hwrd.php?identificacao=$teclado[identificacao]&tabela=$tec'>" .
                                 $teclado['nome_detalhado'];

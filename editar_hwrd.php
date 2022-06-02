@@ -42,7 +42,7 @@ if (isset($_GET['identificacao'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Editar <?php echo $dados['nome_detalhado']; ?></title>
+    <title>Editar <?php echo $id_produto; ?></title>
 </head>
 
 <body>
@@ -52,7 +52,7 @@ if (isset($_GET['identificacao'])) {
             <div class="col">
             </div>
             <div class="col-md-4">
-                <h2>Editar <?php echo $dados['nome_detalhado']; ?></h2>
+                <h2>Editar <?php echo $id_produto; ?></h2>
             </div>
             <div class="col">
             </div>

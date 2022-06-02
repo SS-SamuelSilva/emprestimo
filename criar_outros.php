@@ -1,29 +1,17 @@
 <?php
-//CONEXÃO COM O BD
 include_once('conexao.php');
-
-//INICIO DA SESSÃO
 session_start();
-
-
-// U S A D O  P A R A  N Ã O  P E R M I T I R  A C E S S A R  C O M  U M  L I N K  D I R E T O  S E M  P E D I R  O  L O G I N
 if ((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true)) {
     unset($_SESSION['usuario']);
     unset($_SESSION['senha']);
     header('location: index.php');
 }
-// CASO QUEIRA CONSULTAR A SESSÃO
-#print_r($_SESSION);
-
-//PARA QUEBRAR A SESSÃO É SÓ ATIVAR "#unset($_SESSION['usuario']); #unset($_SESSION['senha']);"
-#unset($_SESSION['usuario']);
-#unset($_SESSION['senha']);
 
 // P E G A N D O  O S  D A D O S  D O  F O R M U L Á R I O
 if (isset($_POST['submit'])) {
-    $service_tag = $_POST['identificação'];
-    $nome_detalhado  = $_POST['modelo'];
-    $descricao  = $_POST['descricao'];
+    $service_tag = $_POST['identificacao'];
+    $nome_detalhado = $_POST['nome_detalhado'];
+    $descricao = $_POST['descricao'];
 
     // select P A R A  V E R I F I C A R  S E  J Á  E X I S T E  A L G U M  I T E M  C O M  A  S E R V I C E  T A G  A R M A Z E N A D A  N A  V A R I A V E L $service_tag
     $sql_search = "SELECT identificacao, nome_detalhado FROM outros WHERE identificacao LIKE '$service_tag'";
@@ -36,7 +24,7 @@ if (isset($_POST['submit'])) {
 
     // I N S E R I N D O  O S  D A D O S  D O  F O R M U L Á R I O
     $sql_injection = mysqli_query($con, "INSERT INTO outros (identificacao, nome_detalhado, descricao) 
-        VALUES ('$service_tag', '$nome_detalhado', '$descricao')");
+    VALUES ('$service_tag', '$nome_detalhado', '$descricao')");
 
 
     // C A S O  S E J A  I N C L U I D O
@@ -123,8 +111,8 @@ if (isset($_POST['submit'])) {
     }
 }
 
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -132,8 +120,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserir Outros</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <title>Criar projetor</title>
 </head>
 
 <body>
@@ -142,68 +130,72 @@ if (isset($_POST['submit'])) {
         <div class="row align-items-center">
             <div class="col">
             </div>
-            <div class="col-md-4">
-                <h2>Incluir</h2>
+
+            <div class="col">
+                <br>
+                <h3>Incluir projetor</h3>
+                <br>
             </div>
+
             <div class="col">
             </div>
+
         </div>
-        <form action="criar_outros.php" method="POST">
-            <legend>Identificação:</legend>
-            <div class="form-floating col-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" name="identificação">
-                <label for="floatingInput">Ex.: Service tag n° de série...</label>
-            </div>
-            <br>
-            <legend>Modelo:</legend>
-            <div class="form-floating col-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" name="modelo">
-                <label for="floatingInput">Ex.: Estado...</label>
-            </div>
-            <br>
-            <legend>Descrição:</legend>
-            <div class="form-floating col-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" name="descricao">
-                <label for="floatingInput">Ex.: Qualidade de imagem...</label>
-            </div> 
-            <br>
-            <legend>Tamanho da tela:</legend>
-            <div class="form-floating col-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" name="descricao">
-                <label for="floatingInput">Ex.: 19"</label>
-            </div>
-            <div>
-                <br>
-                <button class="btn btn-outline-success" type="submit" name="submit">Enviar</button>
-            </div>
-        </form>
-        <br>
-        <!--B O T O E S  P A R A  S A I R-->
+
         <div class="row g-3">
-            <h6>Volte para: </h6>
+            <form action="criar_outros.php" method="POST">
+                <div class="col-md-3">
+                    <label for="identificacao" class="form-label">Identificação:</label>
+                    <input type="text" name="identificacao" id="identificacao" placeholder="Service tag, n° de identificação..." class="form-control">
+                </div>
 
-            <div class="col-md-2">
-                <a href="inserir_hardw.php"> <button class="btn btn-outline-info form-control">Seleção de itens</button></a>
-            </div>
+                <div class="col-md-3">
+                    <label for="nome_detalhado" class="form-label">Nome:</label>
+                    <input type="text" name="nome_detalhado" id="nome_detalhado" placeholder="Service tag, n° de identificação..." class="form-control">
+                </div>
 
-            <div class="col-md-1">
-                <a href="incluir.php"><button class="btn btn-outline-primary form-control">incluir</button></a>
-            </div>
-            <div class="col-md-2">
-                <a href="consulta.php"><button class="btn btn-outline-secondary form-control">Consultar</button></a>
-            </div>
-            <div class="col-md-1">
-                <a href="logout.php"><button class="btn btn-outline-danger form-control">Sair</button></a>
+                <div class="col-md-3">
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <textarea name="descricao" id="descricao" cols="90" rows="1" placeholder="Service tag, n° de identificação..." class="form-control"></textarea>
+                </div>
+
+                <div class="col-md-5">
+                    <br>
+                    <button class="btn btn-outline-success" name="submit">Enviar</button>
+                    <br>
+                </div>
+
+            </form>
+
+            <br>
+
+            <div class="row g-3">
+                <h6>Volte para: </h6>
+
+                <div class="col-md-2">
+                    <a href="inserir_hardw.php"> <button class="btn btn-outline-info form-control">Seleção de itens</button></a>
+                </div>
+
+                <div class="col-md-1">
+                    <a href="incluir.php"><button class="btn btn-outline-primary form-control">incluir</button></a>
+                </div>
+                <div class="col-md-2">
+                    <a href="consulta.php"><button class="btn btn-outline-secondary form-control">Consultar</button></a>
+                </div>
+                <div class="col-md-1">
+                    <a href="logout.php"><button class="btn btn-outline-danger form-control">Sair</button></a>
+                </div>
             </div>
         </div>
-
     </div>
+
     <!--S C R I P T  P A R A  N A O  A P A R E C E R  A  C A I X A  P O P  U P   Q U E  R E E N V I A  O  F O R M U L A R I O  (ele também não permite o reenvio do formulario)-->
     <script>
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 </body>
 

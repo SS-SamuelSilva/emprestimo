@@ -9,7 +9,7 @@ if (isset($_GET['submit'])) {
     print_r("<br>");
     print_r($foreign_key_id);
 
-    if($tabela =='camera'){
+    if ($tabela == 'camera') {
         $service_tag = $_GET['service_tag'];
         $modelo = $_GET['modelo'];
         $descricao = $_GET['descricao'];
@@ -310,6 +310,7 @@ if (isset($_GET['submit'])) {
         $memora_ram = $_GET['memoria_ram'];
         $bateria = $_GET['bateria'];
         $dominio = $_GET['dominio'];
+        print_r($service_tag);
         $update_sql = "UPDATE notebook SET identificacao = '$service_tag', nome_detalhado = '$modelo', descricao = '$descricao', processador = '$processador', memora_ram = '$memora_ram', bateria = '$bateria', dominio = '$dominio' 
         WHERE identificacao LIKE '$foreign_key_id'";
         $update_query = mysqli_query($con, $update_sql);
@@ -408,8 +409,11 @@ if (isset($_GET['submit'])) {
         $service_tag = $_GET['service_tag'];
         $modelo = $_GET['modelo'];
         $descricao = $_GET['descricao'];
-        $qualidade = $_GET['qualidade'];
-        $update_sql = "UPDATE camera SET identificacao = '$service_tag', nome_detalhado = '$modelo', descricao = '$descricao', qualidade = '$qualidade'";
+        $update_sql = "UPDATE projetor SET identificacao = '$service_tag', nome_detalhado = '$modelo', descricao = '$descricao'
+        WHERE identificacao LIKE '$foreign_key_id'";
+        print_r("<br>");
+        print_r($service_tag);
+
         $update_query = mysqli_query($con, $update_sql);
 
         // C A S O  S E J A  A T U A L I Z A D O  N O  B A N C O 
@@ -506,8 +510,8 @@ if (isset($_GET['submit'])) {
         $service_tag = $_GET['service_tag'];
         $modelo = $_GET['modelo'];
         $descricao = $_GET['descricao'];
-        $qualidade = $_GET['qualidade'];
-        $update_sql = "UPDATE camera SET identificacao = '$service_tag', nome_detalhado = '$modelo', descricao = '$descricao', qualidade = '$qualidade'";
+        $update_sql = "UPDATE outros SET identificacao = '$service_tag', nome_detalhado = '$modelo', descricao = '$descricao'
+        WHERE identificacao LIKE '$foreign_key_id'";
         $update_query = mysqli_query($con, $update_sql);
 
         // C A S O  S E J A  A T U A L I Z A D O  N O  B A N C O 
@@ -601,7 +605,7 @@ if (isset($_GET['submit'])) {
     }
 
     //U S U A R I O S  E M  B R E V E 
-/*
+    /*
     if ($tabela == 'monitor') {
         $service_tag = $_GET['service_tag'];
         $modelo = $_GET['modelo'];
