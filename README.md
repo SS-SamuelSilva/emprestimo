@@ -3,3 +3,5 @@ Requisitos:
 1. Ter o xampp instalado
 
 Para instalação é necessário baixar os arquivos da branch main e colocar dentro da pasta htdocs dentro do seu diretório do xampp.
+
+Em relação ao banco de dados é necessário rodar o script que está na branch main dentro do seu PHPMyAdmin e criar um usuário chamado: equipeDOT com a senha: DOT123
