@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
-$user = 'espuna';
-$pass = 'Wdvrdx1964@';
+$user = 'equipeDOT';
+$pass = 'DOT123';
 $database = 'controle';
 
 $con = mysqli_connect($host, $user, $pass, $database ) or die ('Não foi possível conectar ao banco de dados');
