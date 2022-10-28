@@ -1,4 +1,4 @@
-# Olá equipe da DOT. Esta é a versão estável do meu sistema utilizando apenas HTML CSS com Bootstrap 5 e PHP cru.
+# Olá esta é a versão estável do meu sistema utilizando apenas HTML CSS com Bootstrap 5 e PHP cru.
 Requisitos:
 1. Ter o xampp instalado
 
